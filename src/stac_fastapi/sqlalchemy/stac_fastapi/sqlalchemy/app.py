@@ -68,8 +68,8 @@ if settings.debug:
         
 session = Session.create_from_settings(settings)
 api = StacApi(
-    title="Dataforsyningen FlyfotoAPI",
-    description="API til udstilling af metadata for ikke-oprettede flyfotos.",
+    title="Aerial_Images",
+    description="API til fremsøgning af flyfotos og tilhørende metadata, såsom fotodata, pixelstørrelse, placering, orienteringsparametre, m.m. (mere tekst følger)",
     settings=settings,
     extensions=[
         # FieldsExtension(),
@@ -81,7 +81,7 @@ api = StacApi(
     client=CoreCrudClient(
         session=session,
         collection_table=database.Collection,
-        landing_page_id="dataforsyningen-flyfotoapi",
+        landing_page_id="aerial_images",
     ),
     search_request_model=STACSearch,
     route_dependencies=[(ROUTES_REQUIRING_TOKEN, [Depends(token_query_param)])],
